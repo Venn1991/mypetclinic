@@ -1,4 +1,4 @@
-name: CI/CD workflow for Maven Build and Sonar Code scan
+name: CI workflow for Maven Build and Sonar Code scan
 on:
   push:
     branches:
@@ -23,7 +23,7 @@ jobs:
         projectBaseDir: .
         args: >
           -Dsonar.organization=my-org
-          -Dsonar.projectKey=vcube-web-app
+          -Dsonar.projectKey=my-Java-web-app
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
