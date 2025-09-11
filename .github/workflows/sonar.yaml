@@ -14,7 +14,7 @@ jobs:
         java-version: '11'
     - name: Build with Maven
       working-directory: ./MywebApp
-      run: mvn clean package -DskipTests
+      run: mvn clean package -f MyWebApp/pom.xml
     - name: Deploy to Tomcat
       run: |
          WAR_FILE=$(ls mywebApp/target/*.war | head -n 1)
