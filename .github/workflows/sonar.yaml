@@ -16,6 +16,8 @@ jobs:
       run: mvn clean install -f MyWebApp/pom.xml
     - name: Deploy to Tomcat
       run: |
-        curl -v -u ${{ secrets.TOMCAT_USER }}:${{ secrets.TOMCAT_PASSWORD }} \
-        -T MyWebApp/target/MyWebApp.war \ --upload -file $WAR_FILE\
-        "http://${{ secrets.TOMCAT_HOST }}/manager/text/deploy?path=/MyWebApp&update=true"
+         WAR_FILE=$(ls mywebApp/target/*.war | head -n 1)
+           echo "Deploying $WAR_FILE to Tomcat..."
+          curl -v -u "${{ secrets.TOMCAT_USER }}:${{ secrets.TOMCAT_PASSWORD }}" \
+                        --upload-file "$WAR_FILE" \
+           "http://${{ secrets.TOMCAT_HOST }}:8080/manager/text/deploy?path=/mywebApp&update=true"   
