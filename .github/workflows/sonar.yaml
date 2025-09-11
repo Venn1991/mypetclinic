@@ -13,6 +13,7 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
     - name: Build with Maven
+      working-directory: ./MywebApp
       run: mvn clean package -DskipTests
     - name: Deploy to Tomcat
       run: |
