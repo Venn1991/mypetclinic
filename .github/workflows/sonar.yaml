@@ -22,7 +22,7 @@ jobs:
             
         #Build with  maven(update)
         - name: Build with maven
-          run: mvn clean package
+          run: mvn clean package -f MyWebApp/pom.xml
           
         #Deploy WAR to Tomcat  
         - name: Deploy to tomcat
